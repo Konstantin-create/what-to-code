@@ -1,4 +1,5 @@
 # what-to-code
+
 ![image](docs/imgs/base_generate.png)
 Console app to generate projects ideas
 
