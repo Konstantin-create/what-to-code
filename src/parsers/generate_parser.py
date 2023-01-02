@@ -16,7 +16,8 @@ def generate_handler(args: Namespace):
         idea.source_all = True
 
     if args.source:
-        print(args.source)
+        idea.source_all = False
+        idea.source = args.source
 
     idea.print()
 

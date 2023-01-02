@@ -13,7 +13,10 @@ class GenerateCommand:
     def generate_idea(self) -> ParseResponse:
         """Function to generate list of ideas from different services"""
 
-        ideas = [parse_w_t_c()]
+        if self.source_all:
+            ideas = [parse_w_t_c()]
+        else:
+            pass  # todo: get service by id
         return random.choice(ideas)
 
     def print_list(self):
