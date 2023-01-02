@@ -18,3 +18,5 @@ generate_parser.add_argument(
     action='store_true',
     help='command to generate idea from all source'
 )
+
+generate_parser.set_defaults(func=generate_handler)
