@@ -7,7 +7,7 @@ def generate_handler(args: Namespace):
 
     if args.source_all:
         print('All')
-   
+
 
 # Generate parser
 generate_parser = subparsers.add_parser('generate', help='Command to generate random idea from source')
