@@ -15,6 +15,9 @@ def generate_handler(args: Namespace):
     if args.source_all:
         idea.source_all = True
 
+    if args.source:
+        print(args.source)
+
     idea.print()
 
 
@@ -34,6 +37,13 @@ generate_parser.add_argument(
     default=True,
     action='store_true',
     help='command to generate idea from all source'
+)
+
+generate_parser.add_argument(
+    '-s', '--source',
+    dest='source',
+    default='',
+    help='command to generate idea from source'
 )
 
 generate_parser.set_defaults(func=generate_handler)
