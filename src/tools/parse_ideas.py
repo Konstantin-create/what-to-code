@@ -1,7 +1,7 @@
 import json
 import requests
 
-from .config import Config
+from config import Config
 from .tools import ParseResponse
 
 
