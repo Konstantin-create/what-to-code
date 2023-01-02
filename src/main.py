@@ -1,6 +1,7 @@
 # Parsers import
 from parsers.parser import parser
-import parsers
+
+# Config import
 
 if __name__ == '__main__':
     args = parser.parse_args()

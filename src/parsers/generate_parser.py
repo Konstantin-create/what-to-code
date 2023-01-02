@@ -1,12 +1,13 @@
 from .parser import subparsers
 from argparse import Namespace
+from tools.parse_ideas import parse_w_t_c
 
 
 def generate_handler(args: Namespace):
     """Handler for generate command"""
 
     if args.source_all:
-        print('All')
+        print(parse_w_t_c())
 
 
 # Generate parser

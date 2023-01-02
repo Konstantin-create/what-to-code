@@ -1,9 +1,10 @@
 class ParseResponse:
     """Class of parser response"""
 
-    header: str = ''
-    body: str = ''
-    error: int = 100
+    def __init__(self, header: str = '', body: str = '', error: int = 100):
+        self.header = header
+        self.body = body
+        self.error = error
 
     """
     Error codes:
