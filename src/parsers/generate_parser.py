@@ -1,13 +1,15 @@
 from .parser import subparsers
 from argparse import Namespace
-from tools.parse_ideas import parse_w_t_c
+from commands import GenerateCommand
 
 
 def generate_handler(args: Namespace):
     """Handler for generate command"""
 
+    idea = GenerateCommand()
     if args.source_all:
-        print(parse_w_t_c())
+        idea.source_all = True
+    idea.print()
 
 
 # Generate parser
@@ -16,6 +18,7 @@ generate_parser = subparsers.add_parser('generate', help='Command to generate ra
 generate_parser.add_argument(
     '-A', '--all',
     dest='source_all',
+    default=True,
     action='store_true',
     help='command to generate idea from all source'
 )
