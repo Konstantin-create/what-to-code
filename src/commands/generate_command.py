@@ -1,5 +1,6 @@
 import random
 from rich import print
+from config import Config
 from tools.parse_ideas import *
 from tools.tools import ParseResponse
 
@@ -14,6 +15,13 @@ class GenerateCommand:
 
         ideas = [parse_w_t_c()]
         return random.choice(ideas)
+
+    def print_list(self):
+        """Function to print list of generate idea services"""
+
+        urls = Config.urls
+        for i in range(len(urls)):
+            print(f'    {i} - {urls[i]}')
 
     def print(self):
         """Function to print idea"""
