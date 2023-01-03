@@ -30,3 +30,9 @@ def parse_w_t_c() -> ParseResponse:
     data['title'].capitalize()
     data['description'].capitalize().replace('\n', '')
     return ParseResponse(header=data['title'], body=data['description'], error=100)
+
+def parse_codepen_io() -> ParseResponse:
+    """Function to parse https://codepen.io/26pierrek/full/zYoWYjv"""
+
+    page = requests.get(Config.api_urls['codepen_io'])
+    print(page.text)
