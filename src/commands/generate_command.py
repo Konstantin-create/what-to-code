@@ -6,7 +6,7 @@ from tools.tools import ParseResponse
 
 
 class GenerateCommand:
-    def __init__(self, source_all: bool = True, source: str = ''):
+    def __init__(self, source_all: bool = True, source: int = -1):
         self.source_all = source_all
         self.source = source
 
@@ -14,9 +14,9 @@ class GenerateCommand:
         """Function to generate list of ideas from different services"""
 
         if self.source_all:
-            ideas = [parse_w_t_c()]
+            ideas = parse()
         else:
-            pass  # todo: get service by id
+            ideas = parse(parse_all=False, index=self.source)
         return random.choice(ideas)
 
     def print_list(self):

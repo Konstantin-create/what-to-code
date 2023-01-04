@@ -12,12 +12,8 @@ def generate_handler(args: Namespace):
         idea.print_list()
         return
 
-    if args.source_all:
-        idea.source_all = True
-
-    if args.source:
-        idea.source_all = False
-        idea.source = args.source
+    if args.source != -1:
+        idea = GenerateCommand(source_all=False, source=args.source)
 
     idea.print()
 
@@ -43,7 +39,8 @@ generate_parser.add_argument(
 generate_parser.add_argument(
     '-s', '--source',
     dest='source',
-    default='',
+    type=int,
+    default=-1,
     help='command to generate idea from source'
 )
 
