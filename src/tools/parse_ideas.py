@@ -42,4 +42,11 @@ def parse_ideasai() -> ParseResponse:
     page = requests.get(Config.api_urls['ideasai'])
     soup = BeautifulSoup(page.text, 'html.parser')
     idea = random.choice(soup.find_all('h3')).text
-    return ParseResponse(header='From GPT-3', body=idea, error=100)
+    return ParseResponse(header='From IdeasAI', body=idea, error=100)
+
+
+def parse_chat_gpt3() -> ParseResponse:
+    """Function to parse https://e1-server.ml:1033"""
+
+    response = requests.post(Config.api_urls['gpt3'], json={'promp': Config.GPT3_REQUEST})
+    return ParseResponse(header='From GPT-3', body=response.json()['bot'], error=100)

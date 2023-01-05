@@ -9,3 +9,5 @@ class Config:
         'https://ideasai.com',
         'https://e1-server.ml:1033'
     ]
+
+    GPT3_REQUEST = 'generate code idea'
