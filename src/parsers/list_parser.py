@@ -11,6 +11,6 @@ def list_handler(args: Namespace):
 
 
 # List parser
-list_parser = subparsers.add_parser('list', help='Command to print list of')
+list_parser = subparsers.add_parser('list', help='Command to print list of sources')
 
 list_parser.set_defaults(func=list_handler)
