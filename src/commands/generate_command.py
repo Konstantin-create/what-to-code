@@ -19,13 +19,6 @@ class GenerateCommand:
             ideas = parse(parse_all=False, index=self.source)
         return random.choice(ideas)
 
-    def print_list(self):
-        """Function to print list of generate idea services"""
-
-        urls = Config.urls
-        for i in range(len(urls)):
-            print(f'    {i} - {urls[i]}')
-
     def print(self):
         """Function to print idea"""
 
