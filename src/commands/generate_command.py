@@ -32,9 +32,9 @@ class GenerateCommand:
         {idea.body}
                 """
             )
-        elif idea.code == 200:
+        elif idea.error == 200:
             print('[red]En server error occurred[/red]')
-        elif idea.code == 300:
+        elif idea.error == 300:
             print('[red]En error occurred[/red]')
-        elif idea.code == 400:
+        elif idea.error == 400:
             print('[red]Internet connection error occurred. Check connection!')
