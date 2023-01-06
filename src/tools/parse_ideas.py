@@ -31,36 +31,45 @@ def parse(parse_all=True, index: int = -1) -> list:
 def parse_w_t_c() -> ParseResponse:
     """Function to get idea from https://what-to-code.com"""
 
-    page = requests.get(Config.api_urls['what_to_code'])
-    data = json.loads(page.text)
-    data['title'].capitalize()
-    data['description'].capitalize().replace('\n', '')
-    return ParseResponse(
-        header=data['title'],
-        body=data['description'],
-        error=100
-    )
+    try:
+        page = requests.get(Config.api_urls['what_to_code'])
+        data = json.loads(page.text)
+        data['title'].capitalize()
+        data['description'].capitalize().replace('\n', '')
+        return ParseResponse(
+            header=data['title'],
+            body=data['description'],
+            error=100
+        )
+    except:
+        return ParseResponse(error=400)
 
 
 def parse_ideasai() -> ParseResponse:
     """Function to parse https://ideasai.com/"""
 
-    page = requests.get(Config.api_urls['ideasai'])
-    soup = BeautifulSoup(page.text, 'html.parser')
-    idea = random.choice(soup.find_all('h3')).text
-    return ParseResponse(
-        header='From IdeasAI',
-        body=idea,
-        error=100
-    )
+    try:
+        page = requests.get(Config.api_urls['ideasai'])
+        soup = BeautifulSoup(page.text, 'html.parser')
+        idea = random.choice(soup.find_all('h3')).text
+        return ParseResponse(
+            header='From IdeasAI',
+            body=idea,
+            error=100
+        )
+    except:
+        return ParseResponse(error=400)
 
 
 def parse_chat_gpt3() -> ParseResponse:
     """Function to parse https://e1-server.ml:1033"""
 
-    response = requests.post(Config.api_urls['gpt3'], json={'promp': Config.GPT3_REQUEST})
-    return ParseResponse(
-        header='From GPT-3',
-        body=response.json()['bot'].replace('\n', ' ').replace('\\', ''),
-        error=100
-    )
+    try:
+        response = requests.post(Config.api_urls['gpt3'], json={'promp': Config.GPT3_REQUEST})
+        return ParseResponse(
+            header='From GPT-3',
+            body=response.json()['bot'].replace('\n', ' ').replace('\\', ''),
+            error=100
+        )
+    except:
+        return ParseResponse(error=400)

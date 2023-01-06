@@ -11,7 +11,7 @@ class ParseResponse:
     100 - OK
     200 - Server error
     300 - Another error
-    400 - Key error
+    400 - NET error
     """
 
     def __repr__(self):
