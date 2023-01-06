@@ -23,11 +23,18 @@ class GenerateCommand:
         """Function to print idea"""
 
         idea = self.generate_idea()
-        print(
-            f"""
-    [green]Idea were generated![/green]
-    
-    [yellow]{idea.header}[/yellow]
-    {idea.body}
-            """
-        )
+        if idea.code == 100:
+            print(
+                f"""
+        [green]Idea were generated![/green]
+        
+        [yellow]{idea.header}[/yellow]
+        {idea.body}
+                """
+            )
+        elif idea.code == 200:
+            print('[red]En server error occurred[/red]')
+        elif idea.code == 300:
+            print('[red]En error occurred[/red]')
+        elif idea.code == 400:
+            print('[red]Internet connection error occurred. Check connection!')
