@@ -10,4 +10,4 @@ class Config:
         'https://e1-server.ml:1033'
     ]
 
-    GPT3_REQUEST = 'generate code idea'
+    GPT3_REQUEST = 'code idea'
