@@ -31,7 +31,10 @@ def parse_w_t_c() -> ParseResponse:
     """Function to get idea from https://what-to-code.com"""
 
     try:
-        data = requests.get(Config.api_urls['what_to_code']).json()
+        page = requests.get(Config.api_urls['what_to_code'])
+        if page.status_code != 200:
+            return ParseResponse(error=200)
+        data = page.json()
         data['title'].capitalize()
         data['description'].capitalize().replace('\n', '')
         return ParseResponse(
@@ -48,6 +51,8 @@ def parse_ideasai() -> ParseResponse:
 
     try:
         page = requests.get(Config.api_urls['ideasai'])
+        if page.status_code != 200:
+            return ParseResponse(error=200)
         soup = BeautifulSoup(page.text, 'html.parser')
         idea = random.choice(soup.find_all('h3')).text
         return ParseResponse(
@@ -63,8 +68,9 @@ def parse_chat_gpt3() -> ParseResponse:
     """Function to parse https://e1-server.ml:1033"""
 
     try:
-        response = requests.post(Config.api_urls['gpt3'], json={'promp': Config.GPT3_REQUEST}).json()
-        if 'bot' not in response:
+        page = requests.post(Config.api_urls['gpt3'], json={'promp': Config.GPT3_REQUEST})
+        response = page.json()
+        if page.status_code != 200 or 'bot' not in response:
             return ParseResponse(error=200)
         return ParseResponse(
             header='From GPT-3',
