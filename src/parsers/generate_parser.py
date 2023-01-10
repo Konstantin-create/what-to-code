@@ -33,4 +33,11 @@ generate_parser.add_argument(
     help='command to generate idea from source'
 )
 
+generate_parser.add_argument(
+    '-l', '--list',
+    dest='print_list',
+    action='store_true',
+    help='command to generate list of ideas'
+)
+
 generate_parser.set_defaults(func=generate_handler)
