@@ -47,3 +47,17 @@ class GenerateCommand:
             while idea.error != 100:
                 idea = self.generate_idea()
             ideas.append(idea)
+
+    def print_list(self, emount: int) -> None:
+        """Function to print list of ideas"""
+
+        ideas = self.generate_list(emount)
+        for idea in ideas:
+            if idea.error == 100:
+                print(
+                f"""
+    [green]Idea were generated![/green]
+        
+    [yellow]{idea.header}[/yellow]
+    {idea.body}
+    """)
