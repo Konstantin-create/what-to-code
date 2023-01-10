@@ -8,6 +8,8 @@ def generate_handler(args: Namespace):
 
     idea = GenerateCommand()
 
+    if args.print_list != -1:
+        idea.print_list(emount=10)
     if args.source != -1:
         idea = GenerateCommand(source_all=False, source=args.source)
 
@@ -35,8 +37,8 @@ generate_parser.add_argument(
 
 generate_parser.add_argument(
     '-l', '--list',
+    default=-1,
     dest='print_list',
-    action='store_true',
     help='command to generate list of ideas'
 )
 
