@@ -8,10 +8,11 @@ def generate_handler(args: Namespace):
 
     idea = GenerateCommand()
 
-    if args.print_list != -1:
-        idea.print_list(emount=10)
     if args.source != -1:
         idea = GenerateCommand(source_all=False, source=args.source)
+        
+    if args.print_list != -1:
+        idea.print_list(emount=10)
 
     idea.print()
 
