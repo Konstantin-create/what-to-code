@@ -10,7 +10,7 @@ def parse(parse_all=True, index: int = -1) -> list:
     """Function to get ideas from different services"""
 
     if parse_all:
-        out = [parse_w_t_c(), parse_ideasai(), parse_chat_gpt3()]
+        out = [parse_w_t_c(), parse_ideasai()]
         return out
 
     if index > len(Config.urls):
