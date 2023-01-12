@@ -1,3 +1,8 @@
+from tools.save_tools import get_config_data
+
+config_from_file = get_config_data()
+
+
 class Config:
     api_urls: dict = {
         'what_to_code': 'https://what-to-code.com/api/ideas/random',
@@ -11,4 +16,4 @@ class Config:
     ]
 
     GPT3_REQUEST = 'code idea'
-    save_path = '~/.what-to-code'
+    save_path = config_from_file['save_path']
