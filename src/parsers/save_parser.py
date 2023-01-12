@@ -1,11 +1,15 @@
 from .parser import subparsers
 from argparse import Namespace
+from commands import SaveCommand
 
 
 def save_handler(args: Namespace):
     """Handler for save command"""
 
-    pass
+    header = input('Idea header: ')
+    body = input('Idea body: ')
+    save_obj = SaveCommand(header=header, body=body)
+    save_obj.save_idea()
 
 
 # Save parser

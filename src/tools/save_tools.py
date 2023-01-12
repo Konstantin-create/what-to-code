@@ -1,3 +1,5 @@
+from typing import Union
+
 import os
 import json
 from config import Config
@@ -17,7 +19,7 @@ def create_folder() -> None:
     if not check_folder:
         os.mkdir(f'{user_path}//.what-to-code')
 
-def save_idea(header: str, body: str) -> bool:
+def save_idea(header: str, body: str) -> Union[True, Exception]:
     """Function to save idea in .what-to-code/ideas.json"""
 
     
@@ -30,5 +32,5 @@ def save_idea(header: str, body: str) -> bool:
     try:
         json.dump(open(f'{user_path}//.what-to-code//ideas.json', 'w'), current_ideas)
         return True
-    except:
-        return False
+    except Exception as e:
+        return e
