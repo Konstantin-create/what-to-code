@@ -35,6 +35,15 @@ def get_config_data() -> dict:
         return default_config_data
 
 
+def get_ideas_data() -> list:
+    """Function to get list of ideas"""
+
+    try:
+        return json.load(open(f'{user_path}/.what-to-code/ideas.json', 'r'))
+    except:
+        return []
+
+
 def save_idea(header: str, body: str) -> Union[True, Exception]:
     """Function to save idea in .what-to-code/ideas.json"""
 
