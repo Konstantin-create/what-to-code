@@ -7,27 +7,30 @@ from config import Config
 user_path = os.path.expanduser("~")
 
 
-def check_folder() -> bool:
-    """Function to check is .what-to-code folder"""
+def create_base_structure() -> Union[True, Exception]:
+    """Function to create base structure of .what-to-code folder"""
 
-    return os.path.exists(Config.save_path)
+    config_data = {
+        'save_path': '~/.what-to-code'
+    }
 
-
-def create_folder() -> None:
-    """Function to create .what-to-code folder"""
-
-    if not check_folder:
-        os.mkdir(f'{user_path}//.what-to-code')
+    try:
+        if not os.path.exists('~/.what-to-code'):
+            os.mkdir('~/.what-to-code')
+        if not os.path.exists(f'{user_path}/.what-to-code/config.json'):
+            json.dump(open(f'{user_path}/.what-to-code/config.json', 'w'), config_data)
+        if not os.path.exists(f'{user_path}/.what-to-code/ideas.json'):
+            json.dump(open(f'{user_path}/.what-to-code/ideas.json', 'w'), [])
+    except Exception as e:
+        return e
 
 
 def save_idea(header: str, body: str) -> Union[True, Exception]:
     """Function to save idea in .what-to-code/ideas.json"""
 
-    create_folder()
+    create_base_structure()
 
-    if f'{user_path}//.what-to-code//ideas.json':
-        current_ideas = json.load(open(f'{user_path}//.what-to-code/ideas.json', 'r'))
-    current_ideas = []
+    current_ideas = json.load(open(f'{user_path}//.what-to-code/ideas.json', 'r'))
     current_ideas.append({'header': header, 'body': body})
     try:
         json.dump(open(f'{user_path}//.what-to-code//ideas.json', 'w'), current_ideas)
