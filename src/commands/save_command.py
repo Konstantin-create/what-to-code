@@ -15,11 +15,12 @@ class SaveCommand:
         if not self.header and not self.body:
             print('[red]You can\'t save idea without header or body')
             return
-        save_responce = save_idea(header=self.header, body=self.body)
-        if not save_responce:
+        save_response = save_idea(header=self.header, body=self.body)
+        print(save_response)
+        if not save_response:
             print(f"""
-            [red]An error occured![/red]
-            [yellow]For devs: {save_responce}[/yellow]
+            [red]An error occurred![/red]
+            [yellow]For devs: {save_response}[/yellow]
             """)
             return
         print(f"""[green]Idea were saved[/green]""")

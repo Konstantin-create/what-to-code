@@ -14,12 +14,14 @@ def create_base_structure() -> Union[True, Exception]:
     """Function to create base structure of .what-to-code folder"""
 
     try:
-        if not os.path.exists('~/.what-to-code'):
-            os.mkdir('~/.what-to-code')
+        if not os.path.exists(f'{user_path}/.what-to-code'):
+            os.mkdir(f'{user_path}/.what-to-code')
+            print('created')
         if not os.path.exists(f'{user_path}/.what-to-code/config.json'):
-            json.dump(open(f'{user_path}/.what-to-code/config.json', 'w'), default_config_data)
+            json.dump(default_config_data, open(f'{user_path}/.what-to-code/config.json', 'w'), indent=2)
         if not os.path.exists(f'{user_path}/.what-to-code/ideas.json'):
-            json.dump(open(f'{user_path}/.what-to-code/ideas.json', 'w'), [])
+            json.dump([], open(f'{user_path}/.what-to-code/ideas.json', 'w'), indent=2)
+        return True
     except Exception as e:
         return e
 
@@ -36,12 +38,14 @@ def get_config_data() -> dict:
 def save_idea(header: str, body: str) -> Union[True, Exception]:
     """Function to save idea in .what-to-code/ideas.json"""
 
-    create_base_structure()
+    response = create_base_structure()
+    if not response:
+        return response
 
     current_ideas = json.load(open(f'{user_path}//.what-to-code/ideas.json', 'r'))
     current_ideas.append({'header': header, 'body': body})
     try:
-        json.dump(open(f'{user_path}//.what-to-code//ideas.json', 'w'), current_ideas)
+        json.dump(current_ideas, open(f'{user_path}//.what-to-code//ideas.json', 'w'), indent=2)
         return True
     except Exception as e:
         return e
