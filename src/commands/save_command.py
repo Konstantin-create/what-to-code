@@ -24,3 +24,18 @@ class SaveCommand:
             """)
             return
         print(f"""[green]Idea were saved[/green]""")
+
+    def print_list(self):
+        """Function to print list of ideas"""
+
+        ideas = get_ideas_data()
+        if not ideas:
+            print('[yellow]Ideas were n\'t found[/yellow]'
+                  'You haven\'t saved them yet, or a permissions error has occurred'
+                  )
+            return 
+        for idea in ideas:
+            print(f'    {idea["header"]}')
+            print(f'    {idea["body"]}')
+
+        print(f'[green]Total: {len(ideas)}[/green]')
