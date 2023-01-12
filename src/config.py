@@ -11,3 +11,4 @@ class Config:
     ]
 
     GPT3_REQUEST = 'code idea'
+    save_path = '~/.what-to-code'
