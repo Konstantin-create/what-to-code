@@ -37,7 +37,7 @@ class GenerateCommand:
             print('[red]En error occurred[/red]')
         elif idea.error == 400:
             print('[red]Internet connection error occurred. Check connection!')
-    
+
     def generate_list(self, emount: int) -> list:
         """Function to generate list of ideas"""
 
@@ -56,7 +56,7 @@ class GenerateCommand:
         for idea in ideas:
             if idea.error == 100:
                 print(
-                f"""
+                    f"""
     [yellow]{idea.header}[/yellow]
     {idea.body}
     """)

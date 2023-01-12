@@ -6,8 +6,8 @@ from commands import SaveCommand
 def save_handler(args: Namespace):
     """Handler for save command"""
 
-    header = input('Idea header: ')
-    body = input('Idea body: ')
+    header = input('    Idea header: ')
+    body = input('  Idea body: ')
     save_obj = SaveCommand(header=header, body=body)
     save_obj.save_idea()
 
