@@ -8,7 +8,11 @@ class SaveCommand:
         self.header = header
         self.body = body
 
-    def save_idea():
+    def save_idea(self):
         """Function to save idea"""
 
-        pass
+        if not self.header and not self.body:
+            print('[red]You can\'t save idea without header or body')
+            return
+        
+
