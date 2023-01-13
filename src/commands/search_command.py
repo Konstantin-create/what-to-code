@@ -1,3 +1,19 @@
+from tools.search_tools import *
+from tools.save_tools import get_ideas_data
+
+
 class FindCommand:
     def __init__(self):
         pass
+
+    def by_string(self, string_to_find: str):
+        """Function to find idea by part of header/data"""
+
+        ideas = get_ideas_data()
+        ideas_out = []
+
+        for i in ideas.keys():
+            ideas_out.append(
+                compare_strings(needle=string_to_find, hay=ideas[i]['header']),
+                compare_strings(needle=string_to_find, hay=ideas[i]['body'])
+            )
