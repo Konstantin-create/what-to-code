@@ -14,10 +14,8 @@ class SearchCommand:
 
         for i in range(len(ideas)):
             ideas_out.append({
-                i: {
-                    'header': compare_strings(needle=string_to_find, hay=ideas[i]['header']),
-                    'body': compare_strings(needle=string_to_find, hay=ideas[i]['body'])
-                }
+                i: max(compare_strings(needle=string_to_find, hay=ideas[i]['header']),
+                       compare_strings(needle=string_to_find, hay=ideas[i]['body']))
             })
 
         print(ideas_out)
