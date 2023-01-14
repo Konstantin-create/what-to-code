@@ -12,10 +12,12 @@ class SearchCommand:
         ideas = get_ideas_data()
         ideas_out = []
 
-        for i in ideas.keys():
-            ideas_out.append(
-                compare_strings(needle=string_to_find, hay=ideas[i]['header']),
-                compare_strings(needle=string_to_find, hay=ideas[i]['body'])
-            )
+        for i in range(len(ideas)):
+            ideas_out.append({
+                i: {
+                    'header': compare_strings(needle=string_to_find, hay=ideas[i]['header']),
+                    'body': compare_strings(needle=string_to_find, hay=ideas[i]['body'])
+                }
+            })
 
         print(ideas_out)
