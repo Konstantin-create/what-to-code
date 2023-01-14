@@ -34,8 +34,10 @@ class SaveCommand:
                   'You haven\'t saved them yet, or a permissions error has occurred'
                   )
             return
-        for idea in ideas:
-            print(f'    {idea["header"]}')
-            print(f'    {idea["body"]}')
+        for i in range(len(ideas)):
+            print(f'[yellow]Idea ID: {i}[/yellow]')
+            print(f'    {ideas[i]["header"]}')
+            print(f'    {ideas[i]["body"]}')
+            print()
 
         print(f'[green]Total: {len(ideas)}[/green]')
