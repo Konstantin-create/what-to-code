@@ -7,7 +7,7 @@ def search_handler(args: Namespace):
     if args.find_by_string:
         search_obj = SearchCommand()
         search_obj.by_string(string_to_find=args.find_by_string)
-        return 
+        return
 
 
 # Find parser
@@ -18,4 +18,4 @@ search_parser.add_argument(
     help='command to find saved idea by part of header/body'
 )
 
-search_parser.set_deffaults(func=search_handler)
+search_parser.set_defaults(func=search_handler)
