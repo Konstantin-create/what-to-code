@@ -2,7 +2,7 @@ from tools.search_tools import *
 from tools.save_tools import get_ideas_data
 
 
-class FindCommand:
+class SearchCommand:
     def __init__(self):
         pass
 
@@ -17,3 +17,5 @@ class FindCommand:
                 compare_strings(needle=string_to_find, hay=ideas[i]['header']),
                 compare_strings(needle=string_to_find, hay=ideas[i]['body'])
             )
+
+        print(ideas_out)
