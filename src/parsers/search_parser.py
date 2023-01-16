@@ -6,7 +6,7 @@ from commands import SearchCommand
 def search_handler(args: Namespace):
     if args.find_by_string:
         search_obj = SearchCommand()
-        search_obj.print_search_results(string_to_find=args.find_by_string)
+        search_obj.approximate_search_by_string(string_to_find=args.find_by_string)
         return
 
 

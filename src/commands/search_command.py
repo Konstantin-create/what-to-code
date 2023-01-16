@@ -19,7 +19,7 @@ class SearchCommand:
 
         return ideas_out
 
-    def print_search_results(self, string_to_find: str) -> None:
+    def approximate_search_by_string(self, string_to_find: str) -> None:
         """Function to print search result of approximate search"""
 
         ideas_weights = self.by_string(string_to_find)
