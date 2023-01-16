@@ -44,6 +44,15 @@ def get_ideas_data() -> list:
         return []
 
 
+def get_idea_by_id(idea_id: int) -> dict:
+    """Function to get idea by id"""
+
+    ideas = get_ideas_data()
+    if (not ideas) or (len(ideas) > idea_id + 1) or ideas_id < 0:
+        return {'header': '', 'body': ''}
+    return ideas[idea_id]
+
+
 def save_idea(header: str, body: str) -> Union[True, Exception]:
     """Function to save idea in .what-to-code/ideas.json"""
 

@@ -1,3 +1,4 @@
+from rich import print
 from tools.search_tools import *
 from tools.save_tools import get_ideas_data
 
@@ -28,5 +29,7 @@ class SearchCommand:
             print('[red]Idea were n\'t found[/red]')
             return
         if ideas_weights[top_idea_id] <= 0.5:
-            print('[yellow]Similar ideas were n\'t found')
+            print('[yellow]The most similar ideas ideas were found')
+            return
+
         print(ideas_weights)
