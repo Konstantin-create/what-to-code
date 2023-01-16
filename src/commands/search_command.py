@@ -36,4 +36,3 @@ class SearchCommand:
         print(f'[yellow]Idea ID: {top_idea_id}[/yellow]')
         print(f'    {idea["header"]}')
         print(f'    {idea["body"]}')
-        print()

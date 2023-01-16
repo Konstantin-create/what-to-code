@@ -48,9 +48,10 @@ def get_idea_by_id(idea_id: int) -> dict:
     """Function to get idea by id"""
 
     ideas = get_ideas_data()
-    if (not ideas) or (len(ideas) > idea_id + 1) or ideas_id < 0:
+    try:
+        return ideas[idea_id]
+    except:
         return {'header': '', 'body': ''}
-    return ideas[idea_id]
 
 
 def save_idea(header: str, body: str) -> Union[True, Exception]:
