@@ -15,14 +15,14 @@ search_parser = subparsers.add_parser('search', help='command to find idea in sa
 search_parser.add_argument(
     '-s', '--string',
     dest='find_by_string',
-    type=int,
+    type=str,
     help='command to find saved idea by part of header/body'
 )
 
 search_parser.add_argument(
     '-i', '--id',
     dest='find_by_id',
-    type=str,
+    type=int,
     help='command to find saved idea by id'
 )
 

@@ -51,7 +51,7 @@ def get_idea_by_id(idea_id: int) -> dict:
     try:
         return ideas[idea_id]
     except:
-        return {'header': '', 'body': ''}
+        return {'header': '', 'body': '[red]An idea were n\'t found[/red]'}
 
 
 def save_idea(header: str, body: str) -> Union[True, Exception]:
