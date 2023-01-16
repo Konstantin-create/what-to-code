@@ -1,6 +1,6 @@
 from rich import print
 from tools.search_tools import *
-from tools.save_tools import get_ideas_data
+from tools.save_tools import get_ideas_data, get_idea_by_id
 
 
 class SearchCommand:
@@ -28,8 +28,14 @@ class SearchCommand:
         if ideas_weights[top_idea_id] == 0:
             print('[red]Idea were n\'t found[/red]')
             return
-        if ideas_weights[top_idea_id] <= 0.5:
+        if ideas_weights[top_idea_id] <= 0.6:
             print('[yellow]The most similar ideas ideas were found')
+            idea = get_idea_by_id(top_idea_id)
+            print(f'[yellow]Idea ID: {top_idea_id}[/yellow]')
+            print(f'    {idea["header"]}')
+            print(f'    {idea["body"]}')
+            print()
+
             return
 
         print(ideas_weights)
