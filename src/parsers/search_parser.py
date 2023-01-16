@@ -4,10 +4,14 @@ from commands import SearchCommand
 
 
 def search_handler(args: Namespace):
+    search_obj = SearchCommand()
     if args.find_by_string:
-        search_obj = SearchCommand()
         search_obj.approximate_search_by_string(string_to_find=args.find_by_string)
         return
+
+    if args.find_by_id:
+        search_obj.search_by_id(idea_id=args.find_by_id)
+        return 
 
 
 # Find parser
