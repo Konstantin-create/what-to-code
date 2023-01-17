@@ -17,6 +17,22 @@ Console app to generate projects ideas
 ~ what-to-code list - Print list of sources
 ```
 
+## Sharing file example
+```
+[PC_NAME]hacknet_linux[/PC_NAME]
+[PC_TIMESTAMP]January 17 2023 - 12:55:57[/PC_TIMESTAMP]
+[IDEAS]
+    [IDEA]
+        [HEADER]Some header 1[/HEADER]
+        [BODY]Some body 1[/BODY]
+    [/IDEA]
+    [IDEA]
+        [HEADER]Some header 2[/HEADER]
+        [BODY]Some body 2[/BODY]
+    [/IDEA]
+[/IDEAS]
+```
+
 ## TODO list
 - [x] Base idea generation
 - [x] Generate idea from custom source
