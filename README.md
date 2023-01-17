@@ -21,6 +21,7 @@ Console app to generate projects ideas
 ```
 [PC_NAME]hacknet_linux[/PC_NAME]
 [PC_TIMESTAMP]January 17 2023 - 12:55:57[/PC_TIMESTAMP]
+[IDEAS_AMOUNT]2[/IDEAS_AMOUNT]
 [IDEAS]
     [IDEA]
         [HEADER]Some header 1[/HEADER]
