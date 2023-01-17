@@ -1,3 +1,4 @@
+from rich import print
 from .parser import subparsers
 from argparse import Namespace
 from commands import SaveCommand
@@ -7,7 +8,7 @@ def save_handler(args: Namespace):
     """Handler for save command"""
 
     if args.add_list:
-        print(f'[green]Adding {args.add_list} ideas')
+        print(f'[green]Adding {args.add_list} ideas[/green]')
         for i in range(args.add_list):
             print(f'Add {i + 1} idea')
             header = input('    Idea header: ')
