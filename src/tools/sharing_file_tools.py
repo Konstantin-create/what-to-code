@@ -1,10 +1,14 @@
 import os
 
 
-def parse_file_data(file_data: sting) -> dict:
+def parse_file_data(file_data: str) -> dict:
     """Function to convert file data string to dict"""
 
-    pass
+    parsed_data = {}
+
+    for data_line in file_data:
+        if '[PC_NAME]' in data_line:
+            pass
 
 
 def load_wtc_file(path: str) -> dict:
@@ -14,4 +18,4 @@ def load_wtc_file(path: str) -> dict:
         return {'error': 'File not exists'}
 
     with open(path, 'r') as file:
-        file_data = file.read()
+        file_data = file.readlines()
