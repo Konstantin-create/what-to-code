@@ -5,6 +5,9 @@ from commands import SearchCommand
 
 def search_handler(args: Namespace):
     search_obj = SearchCommand()
+    if args.print_list:
+        search_obj.print_list()
+
     if args.find_by_string:
         search_obj.approximate_search_by_string(string_to_find=args.find_by_string)
         return
@@ -28,6 +31,13 @@ search_parser.add_argument(
     dest='find_by_id',
     type=int,
     help='command to find saved idea by id'
+)
+
+search_parser.add_argument(
+    '-l', '--list',
+    dest='print_list',
+    action='store_true',
+    help='command to print list of saved ideas'
 )
 
 search_parser.set_defaults(func=search_handler)
