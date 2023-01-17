@@ -1,13 +1,13 @@
 from .parser import subparsers
 from argparse import Namespace
-from commands import SaveCommand
+from commands import SaveCommand, SearchCommand
 
 
 def save_handler(args: Namespace):
     """Handler for save command"""
 
     if args.print_list:
-        SaveCommand().print_list()
+        SearchCommand().print_list()
         return
     header = input('    Idea header: ')
     body = input('  Idea body: ')
