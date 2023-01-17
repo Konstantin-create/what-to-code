@@ -36,3 +36,32 @@ class SearchCommand:
         print(f'[yellow]Idea ID: {top_idea_id}[/yellow]')
         print(f'    {idea["header"]}')
         print(f'    {idea["body"]}')
+
+    def search_by_id(self, id_to_find: int):
+        """Function t oprint search result by saved idea id"""
+
+        idea = get_idea_by_id(id_to_find)
+        if not idea['header'] and not idea['body']:
+            print('[red]Idea were n\'t found[/red]')
+            return
+
+        print(f'[yellow]Idea ID: {id_to_find}[/yellow]')
+        print(f'    {idea["header"]}')
+        print(f'    {idea["body"]}')
+
+    def print_list(self):
+        """Function to print list of ideas"""
+
+        ideas = get_ideas_data()
+        if not ideas:
+            print('[yellow]Ideas were n\'t found[/yellow]'
+                  'You haven\'t saved them yet, or a permissions error has occurred'
+                  )
+            return
+        for i in range(len(ideas)):
+            print(f'[yellow]Idea ID: {i}[/yellow]')
+            print(f'    {ideas[i]["header"]}')
+            print(f'    {ideas[i]["body"]}')
+            print()
+
+        print(f'[green]Total: {len(ideas)}[/green]')
