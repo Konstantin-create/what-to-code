@@ -10,8 +10,8 @@ def search_handler(args: Namespace):
         return
 
     if args.find_by_id:
-        search_obj.search_by_id(idea_id=args.find_by_id)
-        return 
+        search_obj.search_by_id(id_to_find=args.find_by_id)
+        return
 
 
 # Find parser
