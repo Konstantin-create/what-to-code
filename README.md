@@ -22,7 +22,7 @@ Console app to generate projects ideas
 - [x] Generate idea from custom source
 - [x] Print list of sources
 - [x] Generate list of ideas from all sources && custom source (~v1.0.5)
-- [ ] Saved ideas (~v2.0.0)
+- [x] Saved ideas (~v2.0.0)
 - [ ] Save list of ideas
 - [ ] Load and save ideas from file
 
