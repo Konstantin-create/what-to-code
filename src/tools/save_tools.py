@@ -10,7 +10,7 @@ default_config_data = {
 }
 
 
-def create_base_structure() -> Union[True, Exception]:
+def create_base_structure() -> Union[bool, Exception]:
     """Function to create base structure of .what-to-code folder"""
 
     try:
@@ -54,7 +54,7 @@ def get_idea_by_id(idea_id: int) -> dict:
         return {'header': '', 'body': '[red]An idea were n\'t found[/red]'}
 
 
-def save_idea(header: str, body: str) -> Union[True, Exception]:
+def save_idea(header: str, body: str) -> Union[bool, Exception]:
     """Function to save idea in .what-to-code/ideas.json"""
 
     response = create_base_structure()
