@@ -36,7 +36,7 @@ def parse_file_data(file_data: str) -> dict:
             parsed_data['ideas'] = []
             in_ideas_block = True
 
-    return out
+    return parsed_data
 
 
 def load_wtc_file(path: str) -> dict:
