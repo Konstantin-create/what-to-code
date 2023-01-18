@@ -1,7 +1,7 @@
 import os
 
 
-def parse_file_data(file_data: str) -> dict:
+def parse_file_data(file_data: list) -> dict:
     """Function to convert file data string to dict"""
 
     parsed_data = {}
@@ -47,4 +47,4 @@ def load_wtc_file(path: str) -> dict:
 
     with open(path, 'r') as file:
         file_data = file.readlines()
-    print(parse_file_data(file_data))
+    return parse_file_data(file_data)
