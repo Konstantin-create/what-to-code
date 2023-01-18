@@ -47,4 +47,4 @@ def load_wtc_file(path: str) -> dict:
 
     with open(path, 'r') as file:
         file_data = file.readlines()
-    parse_file_data(file_data)
+    print(parse_file_data(file_data))
