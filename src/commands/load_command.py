@@ -16,4 +16,4 @@ class LoadCommand:
         print(f'[yellow]Time stamp: {file_data["pc_timestamp"]}[/yellow]')
         print()
         print()
-        print(f'[green]Found {file_data["ideas_amount"]}[/green]')
+        print(f'[green]Found: {file_data["ideas_amount"]} ideas[/green]')

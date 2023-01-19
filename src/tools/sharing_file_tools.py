@@ -31,7 +31,7 @@ def parse_file_data(file_data: list) -> dict:
                                           data_line.find('[PC_TIMESTAMP]') + 14:data_line.find('[/PC_TIMESTAMP]')]
         elif '[IDEAS_AMOUNT]' in data_line:
             parsed_data['ideas_amount'] = data_line[
-                                         data_line.find('[IDEAS_AMOUNT]') + 12:data_line.find('[/IDEAS_AMOUNT]')]
+                                         data_line.find('[IDEAS_AMOUNT]') + 14:data_line.find('[/IDEAS_AMOUNT]')]
         elif '[IDEAS]' in data_line:
             parsed_data['ideas'] = []
             in_ideas_block = True
