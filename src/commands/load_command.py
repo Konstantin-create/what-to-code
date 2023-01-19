@@ -32,4 +32,4 @@ class LoadCommand:
             print(f'Success: save "{idea["header"]}"')
 
         print()
-        print(f'[green]{file_data["ideas_amount"]}ideas were added[/green]')
+        print(f'[green]{file_data["ideas_amount"]} ideas were added[/green]')
