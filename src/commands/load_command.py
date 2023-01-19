@@ -20,7 +20,7 @@ class LoadCommand:
         print()
         print(f'[green]Found: {file_data["ideas_amount"]} ideas[/green]')
         if not self.autosave:
-            command = input('Save ideas to local storage(y/N)').strip().lower()
+            command = input('Save ideas to local storage(y/N): ').strip().lower()
             if command != 'y':
                 print()
                 print('[red]Ideas were n\'t saved[/red]')
