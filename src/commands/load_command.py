@@ -29,4 +29,4 @@ class LoadCommand:
             save_idea(header=idea['header'], body=idea['body'])
 
         print()
-        print('[green]Ideas were added[/green]')
+        print(f'[green]{file_data["ideas_amount"]}ideas were added[/green]')
