@@ -62,8 +62,9 @@ def save_idea(header: str, body: str) -> Union[bool, Exception]:
         return response
 
     current_ideas = json.load(open(f'{user_path}//.what-to-code/ideas.json', 'r'))
-    if not {'header': header, 'body': body} in current_ideas:
-        current_ideas.append({'header': header, 'body': body})
+    if {'header': header, 'body': body} in current_ideas:
+        return False
+    current_ideas.append({'header': header, 'body': body})
     try:
         json.dump(current_ideas, open(f'{user_path}//.what-to-code//ideas.json', 'w'), indent=2)
         return True
