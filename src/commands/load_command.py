@@ -1,5 +1,4 @@
 from rich import print
-from tools.load_tools import *
 from tools.sharing_file_tools import *
 
 
@@ -8,7 +7,7 @@ class LoadCommand:
         self.file_path = file_path
         self.mode = 'save'
 
-    def from_path(self):
+    def by_path(self):
         """Function to load ideas from path"""
 
         print(f'[green]Load from file "{self.file_path}"[/green]')

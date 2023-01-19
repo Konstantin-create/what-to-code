@@ -1,14 +1,15 @@
 import os.path
-
 from .parser import subparsers
 from argparse import Namespace
+from commands import LoadCommand
 
 
 def load_handler(args: Namespace):
-    if not os.path.exists(args.file_path):
-        print(f'[red]"{args.file_path}" - does n\'t exists[/red]')
+    if not os.path.exists(args.file_path.strip()):
+        print(f'[red]"{args.file_path.strip()}" - does n\'t exists[/red]')
         return
-    # todo: load command
+    load_command = LoadCommand(file_path=args.file_path.strip())
+    load_command.by_path()
 
 
 # Load parser
