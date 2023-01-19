@@ -17,6 +17,8 @@ class SaveCommand:
             return
         save_response = save_idea(header=self.header, body=self.body)
         print(save_response)
+        if save_response is False:
+            print('[red]You already have the same idea on your storage[/red]')
         if not save_response:
             print(f"""
             [red]An error occurred![/red]
