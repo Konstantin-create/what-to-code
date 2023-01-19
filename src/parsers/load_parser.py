@@ -23,7 +23,7 @@ load_parser.add_argument(
 )
 load_parser.add_argument(
     '-y', '--yes',
-    dest='auto_save',
+    dest='autosave',
     action='store_true',
     help='auto save ideas from .wtc file'
 )
