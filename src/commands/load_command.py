@@ -26,7 +26,10 @@ class LoadCommand:
                 print('[red]Ideas were n\'t saved[/red]')
                 return
         for idea in file_data['ideas']:
-            save_idea(header=idea['header'], body=idea['body'])
+            if not save_idea(header=idea['header'], body=idea['body']):
+                print(f'[yellow]You already have "{idea["header"]}" in your local storage[/yellow]')
+                continue
+            print(f'Success: save "{idea["header"]}"')
 
         print()
         print(f'[green]{file_data["ideas_amount"]}ideas were added[/green]')
