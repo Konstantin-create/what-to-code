@@ -8,7 +8,7 @@ def load_handler(args: Namespace):
     if not os.path.exists(args.file_path.strip()):
         print(f'[red]"{args.file_path.strip()}" - does n\'t exists[/red]')
         return
-    load_command = LoadCommand(file_path=args.file_path.strip())
+    load_command = LoadCommand(file_path=args.file_path.strip(), autosave=args.autosave)
     load_command.by_path()
 
 
@@ -20,6 +20,12 @@ load_parser.add_argument(
     default='',
     type=str,
     help='path to ideas .wtc file'
+)
+load_parser.add_argument(
+    '-y', '--yes',
+    dest='auto_save',
+    action='store_true',
+    help='auto save ideas from .wtc file'
 )
 
 load_parser.set_defaults(func=load_handler)

@@ -3,9 +3,10 @@ from tools.sharing_file_tools import *
 
 
 class LoadCommand:
-    def __init__(self, file_path: str):
+    def __init__(self, file_path: str, autosave: bool = False):
         self.file_path = file_path
         self.mode = 'save'
+        self.autosave = autosave
 
     def by_path(self):
         """Function to load ideas from path"""
