@@ -1,9 +1,9 @@
-import random
-import requests
+from requests import get, post
 from bs4 import BeautifulSoup
 
 from config import Config
 from .tools import ParseResponse
+from random import choice as random_choice
 
 
 def parse(parse_all=True, index: int = -1) -> list:
@@ -31,7 +31,7 @@ def parse_w_t_c() -> ParseResponse:
     """Function to get idea from https://what-to-code.com"""
 
     try:
-        page = requests.get(Config.api_urls['what_to_code'])
+        page = get(Config.api_urls['what_to_code'])
         if page.status_code != 200:
             return ParseResponse(error=200)
         data = page.json()
@@ -50,11 +50,11 @@ def parse_ideasai() -> ParseResponse:
     """Function to parse https://ideasai.com/"""
 
     try:
-        page = requests.get(Config.api_urls['ideasai'])
+        page = get(Config.api_urls['ideasai'])
         if page.status_code != 200:
             return ParseResponse(error=200)
         soup = BeautifulSoup(page.text, 'html.parser')
-        idea = random.choice(soup.find_all('h3')).text
+        idea = random_choice(soup.find_all('h3')).text
         return ParseResponse(
             header='From IdeasAI',
             body=idea,
@@ -68,7 +68,7 @@ def parse_chat_gpt3() -> ParseResponse:
     """Function to parse https://e1-server.ml:1033"""
 
     try:
-        page = requests.post(Config.api_urls['gpt3'], json={'promp': Config.GPT3_REQUEST})
+        page = post(Config.api_urls['gpt3'], json={'promp': Config.GPT3_REQUEST})
         response = page.json()
         if page.status_code != 200 or 'bot' not in response:
             return ParseResponse(error=200)

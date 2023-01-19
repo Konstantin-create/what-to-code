@@ -1,4 +1,4 @@
-import os
+import os.path
 
 
 def parse_file_data(file_data: list) -> dict:

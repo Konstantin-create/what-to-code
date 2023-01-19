@@ -1,6 +1,5 @@
 import random
 from rich import print
-from config import Config
 from tools.parse_ideas import *
 from tools.tools import ParseResponse
 

@@ -1,6 +1,5 @@
 from difflib import SequenceMatcher as SM
 from nltk.util import ngrams
-import codecs
 
 
 def compare_strings(needle, hay):
@@ -15,6 +14,5 @@ def compare_strings(needle, hay):
         similarity = SM(None, hay_ngram, needle).ratio()
         if similarity > max_sim_val:
             max_sim_val = similarity
-            max_sim_string = hay_ngram
 
     return max_sim_val
