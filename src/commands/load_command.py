@@ -1,4 +1,5 @@
 from rich import print
+from tools.save_tools import save_idea
 from tools.sharing_file_tools import *
 
 
@@ -24,4 +25,8 @@ class LoadCommand:
                 print()
                 print('[red]Ideas were n\'t saved[/red]')
                 return
-        # todo: save ideas to file
+        for idea in file_data['ideas']:
+            save_idea(header=idea['header'], body=idea['body'])
+
+        print()
+        print('[green]Ideas were added[/green]')
