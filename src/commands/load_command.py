@@ -9,16 +9,23 @@ class LoadCommand:
         self.mode = 'save'
         self.autosave = autosave
 
-    def by_path(self):
-        """Function to load ideas from path"""
+    def print_base_header(self, file_data):
+        """Function to print base construction of open file"""
 
         print(f'[green]Load from file "{self.file_path}"[/green]')
-        file_data = load_wtc_file(path=self.file_path)
+
         print(f'[yellow]Computer name: {file_data["pc_name"]}[/yellow]')
         print(f'[yellow]Time stamp: {file_data["pc_timestamp"]}[/yellow]')
         print()
         print()
         print(f'[green]Found: {file_data["ideas_amount"]} ideas[/green]')
+
+    def by_path(self):
+        """Function to load ideas from path"""
+
+        file_data = load_wtc_file(path=self.file_path)
+        self.print_base_header(file_data)
+
         if not self.autosave:
             command = input('Save ideas to local storage(y/N): ').strip().lower()
             if command != 'y':
@@ -33,3 +40,9 @@ class LoadCommand:
 
         print()
         print(f'[green]{file_data["ideas_amount"]} ideas were added[/green]')
+
+    def show_ideas(self):
+        """Function to show ideas from path"""
+
+        file_data = load_wtc_file(path=self.file_path)
+        self.print_base_header(file_data)
