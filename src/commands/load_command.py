@@ -46,3 +46,8 @@ class LoadCommand:
 
         file_data = load_wtc_file(path=self.file_path)
         self.print_base_header(file_data)
+        for i in range(len(file_data['ideas'])):
+            print(f'[yellow]Idea ID: {i}[/yellow]')
+            print(f'    {file_data["ideas"][i]["header"]}')
+            print(f'    {file_data["ideas"][i]["body"]}')
+            print()
